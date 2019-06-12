@@ -5,18 +5,18 @@ class Register extends Component {
     constructor() {
         super();
         this.state = {
-            name: "",
-            email: "",
-            password: "",
-            password2: "",
+            name: '',
+            email: '',
+            password: '',
+            password2: '',
             errors: {}
         };
-        this.onChange = this.onChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    onChange(e) {
-        this.state({ value: event.target.value });
+    handleChange(e) {
+        this.setState({ [e.target.id]: e.target.value });
     }
 
     handleSubmit(e) {
@@ -39,39 +39,39 @@ class Register extends Component {
                                 <input
                                     id="name"
                                     type="text"
-                                    onChange={this.onChange}
+                                    onChange={this.handleChange}
                                     value={this.state.name}
                                 />
-                                <label htmlFor="name">Name</label>
+                                <label htmlFor="name">name</label>
                             </div>
                             <div className="input-field col s12">
                                 <input
                                     id="email"
                                     type="email"
                                     errors={errors.email}
-                                    onChange={this.onChange}
+                                    onChange={this.handleChange}
                                     value={this.state.email}
                                 />
-                                <label htmlFor="email">Email</label>
+                                <label htmlFor="email">email</label>
                             </div>
                             <div className="input-field col s12">
                                 <input
                                     id="password"
                                     type="password"
-                                    onChange={this.onChange}
+                                    onChange={this.handleChange}
                                     value={this.state.password}
                                 />
-                                <label htmlFor="password">Password</label>
+                                <label htmlFor="password">password</label>
                             </div>
                             <div className="input-field col s12">
                                 <input
                                     id="password2"
                                     type="password"
                                     errors={errors.password2}
-                                    onChange={this.onChange}
+                                    onChange={this.handleChange}
                                     value={this.state.password2}
                                 />
-                                <label htmlFor="password2">Confirm Password</label>
+                                <label htmlFor="password2">confirm password</label>
                             </div>
                             <div className="col s12">
                                 <button
