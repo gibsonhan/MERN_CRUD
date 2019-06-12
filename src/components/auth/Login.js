@@ -5,20 +5,20 @@ class Login extends Component {
     constructor() {
         super();
         this.state = {
-            email: '',
-            password: '',
+            email: "",
+            password: "",
             errors: {}
         };
-        this.onChange = this.onChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    onChange(e) {
-        this.setState({ value: event.target.value });
+    handleChange(e) {
+        this.setState({ [e.target.id]: e.target.value });
     }
 
     handleSubmit(e) {
-        event.preventDefault();
+        e.preventDefault();
     }
 
     render() {
@@ -37,23 +37,21 @@ class Login extends Component {
                         <div className="input-field col s12">
                             <input
                                 autoFocus
-                                error={errors.email}
-                                onChange={this.onChange}
-                                value={this.state.username}
                                 id="email"
                                 type="email"
+                                onChange={this.handleChange}
+                                value={this.state.username}
                             />
                             <label htmlFor="email">Email</label>
                         </div>
                         <div className="input-field col s12">
                             <input
-                                error={errors.password}
-                                onChange={this.onChange}
-                                value={this.state.password}
                                 id="password"
-                                type="password">
-                            >
-                            </input>
+                                type="password"
+                                onChange={this.handleChange}
+                                value={this.state.password}
+                                error={errors.password}
+                            />
                             <label htmlFor="password">Password</label>
                         </div>
                         <div className="col s12">
