@@ -11,12 +11,12 @@ class Register extends Component {
             password2: '',
             errors: {}
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.onChange = this.onChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(e) {
-        this.setState({ [e.target.id]: e.target.value });
+    onChange(e) {
+        this.state({ value: event.target.value });
     }
 
     handleSubmit(e) {
@@ -39,7 +39,7 @@ class Register extends Component {
                                 <input
                                     id="name"
                                     type="text"
-                                    onChange={this.handleChange}
+                                    onChange={this.onChange}
                                     value={this.state.name}
                                 />
                                 <label htmlFor="name">name</label>
@@ -49,8 +49,8 @@ class Register extends Component {
                                     id="email"
                                     type="email"
                                     errors={errors.email}
-                                    onChange={this.handleChange}
-                                    value={this.state.email}
+                                    onChange={this.onChange}
+                                    value={this.state.name}
                                 />
                                 <label htmlFor="email">email</label>
                             </div>
@@ -58,7 +58,7 @@ class Register extends Component {
                                 <input
                                     id="password"
                                     type="password"
-                                    onChange={this.handleChange}
+                                    onChange={this.onChange}
                                     value={this.state.password}
                                 />
                                 <label htmlFor="password">password</label>
@@ -68,7 +68,7 @@ class Register extends Component {
                                     id="password2"
                                     type="password"
                                     errors={errors.password2}
-                                    onChange={this.handleChange}
+                                    onChange={this.onChange}
                                     value={this.state.password2}
                                 />
                                 <label htmlFor="password2">confirm password</label>

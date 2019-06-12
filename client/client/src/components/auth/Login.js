@@ -5,20 +5,20 @@ class Login extends Component {
     constructor() {
         super();
         this.state = {
-            email: "",
-            password: "",
+            email: '',
+            password: '',
             errors: {}
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.onChange = this.onChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(e) {
-        this.setState({ [e.target.id]: e.target.value });
+    onChange(e) {
+        this.setState({ value: event.target.value });
     }
 
     handleSubmit(e) {
-        e.preventDefault();
+        event.preventDefault();
     }
 
     render() {
@@ -39,7 +39,7 @@ class Login extends Component {
                                 autoFocus
                                 id="email"
                                 type="email"
-                                onChange={this.handleChange}
+                                onChange={this.onChange}
                                 value={this.state.username}
                             />
                             <label htmlFor="email">Email</label>
@@ -48,9 +48,9 @@ class Login extends Component {
                             <input
                                 id="password"
                                 type="password"
-                                onChange={this.handleChange}
-                                value={this.state.password}
                                 error={errors.password}
+                                onChange={this.onChange}
+                                value={this.state.password}
                             />
                             <label htmlFor="password">Password</label>
                         </div>
