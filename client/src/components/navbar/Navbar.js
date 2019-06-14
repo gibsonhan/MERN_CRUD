@@ -11,7 +11,7 @@ class Navbar extends Component {
                             style= {{ frontFamily: "monospace" }}
                             className="col s5 brand-logo center black-text">
                             <i className="material-icons">code</i>
-                            MERN
+                            MERN CRM
                         </Link>
                     </div>
                 </nav>
