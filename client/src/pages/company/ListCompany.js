@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 class CompanyRow extends Component {
     render() {
         return (
@@ -17,7 +18,7 @@ class CompanyRow extends Component {
 
 class ListCompany extends Component {
     componentDidMount() {
-        axios.get('http://localhost:3000/companies')
+        axios.get('http://localhost:3000/api/companies')
             .then(response => {
                 console.log(response.data);
             })
