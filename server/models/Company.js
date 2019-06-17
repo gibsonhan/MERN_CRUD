@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 //Create Company Schema
-const CompanySchema = new Schema({
+let CompanySchema = new Schema({
     companyName: {
         type: String,
         require: true
@@ -12,7 +12,19 @@ const CompanySchema = new Schema({
         require: true
     },
     companyRegion: {
-        type: String,
+        type: String
+    },
+    companyTimezone: {
+        type:String
+    },
+    companyPoc: {
+        type:String
+    },
+    companyPocPhone: {
+        type: String
+    },
+    companyNotes: {
+        type: String
     },
     companyProfileCreationDate:{
         type: Date,
@@ -22,4 +34,8 @@ const CompanySchema = new Schema({
     companyHandler:{
         type: String,
     }
-})
+}, {
+    collection: 'companies'
+});
+
+module.exports = Company = mongoose.model('company', CompanySchema);

@@ -10,6 +10,12 @@ import Landing from "../pages/landing/Landing";
 import Login from '../components/auth/Login';
 import Navbar from "../components/navbar/Navbar";
 import Register from '../components/auth/Register';
+import Footer from '../components/footer/Footer';
+
+//import Company Component
+import CreateCompany from "../pages/company/CreateCompany";
+import ListCompany from "../pages/company/ListCompany";
+import EditCompany from "../pages/company/EditCompany";
 
 class App extends Component {
     render() {
@@ -21,6 +27,10 @@ class App extends Component {
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/dashboard" component={Dashboard} />
+                    <Route exaxt path="/createCompany" component={CreateCompany} />
+                    <Route exact path="/listCompany" component={ListCompany} />
+                    <Route path="/editCompany/:id" component={EditCompany} />
+                    <Footer />
                 </div>
             </Router>
         );

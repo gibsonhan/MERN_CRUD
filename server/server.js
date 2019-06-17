@@ -3,15 +3,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors')
 const passport = require('passport');
 
 const app = express();
 const users = require('./routes/api/users');
+const companyRoute = require('./routes/api/companies');
 
 app.use(express.static("static"));
 //Bodyparser middleware
+
+app.use(cors());
 app.use(
-    bodyParser.urlencoded({
+        bodyParser.urlencoded({
         extended: false
     })
 );
@@ -24,7 +28,7 @@ const db = require("./config.scripts/mongoKey").mongoURI;
 mongoose.connect(
     db, { useNewUrlParser: true }
 )
-    .then(() => console.log('MongoDB succesfully connected'))
+    .then((db) => console.log('MongoDB succesfully connected'))
     .catch(err => console.log(err));
 
 //Passport middleware
@@ -35,9 +39,10 @@ require('./config.scripts/passport.js')(passport);
 
 //Routes
 app.use('/api/users', users);
+app.use('/api/companies', companyRoute);
 
 //Redirect any server request back to index.html: To deal with CRS
-app.get('/*', function(req, res, next){
+app.get('/', function(req, res, next){
     res.sendFile(path.join(__dirname, '../client', 'index.html'));
 })
 

@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router();
+const userRoutes = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config.scripts/mongoKey");
@@ -13,7 +13,7 @@ const User = require("../../models/User");
 // @route POST api/users/register
 // @desc Register user
 // @access Public
-router.post("/register", (req, res) => {
+userRoutes.post("/register", (req, res) => {
     // Form validation
     const { errors, isValid } = validateRegisterInput(req.body);
     // Check validation
@@ -47,7 +47,7 @@ router.post("/register", (req, res) => {
 // @route POST api/users/login
 // @desc Login user and return JWT token
 // @access Public
-router.post("/login", (req, res) => {
+userRoutes.post("/login", (req, res) => {
     // Form validation
     const { errors, isValid } = validateLoginInput(req.body);
     // Check validation
@@ -94,4 +94,4 @@ router.post("/login", (req, res) => {
     });
 });
 
-module.exports = router;
+module.exports = userRoutes;
