@@ -21,13 +21,11 @@ exports.company_id_get = (req, res) => {
 
 //Handle Company create on Post
 exports.company_create_post = (req, res) => {
-    let newCompany = req.body;
-    newCompany = new Date();
-
-    newCompany.save()
-        .then(newCompany => {
-            res.status(200).json({'companies': 'company is added!'})
-            res.redirect('/dashboard');
+    const company = new Company(req.body);
+    console.log(company);
+    company.save()
+        .then(company => {
+            res.status(200).json('New company added successfully');
         })
         .catch(err=> {
             res.status(400).send("unable to save to database");

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class CompanyRow extends Component {
     render() {
@@ -15,6 +16,16 @@ class CompanyRow extends Component {
 }
 
 class ListCompany extends Component {
+    componentDidMount() {
+        axios.get('http://localhost:3000/companies')
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
     render() {
         return (
             <div className="container">
