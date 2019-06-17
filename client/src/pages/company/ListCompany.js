@@ -1,5 +1,19 @@
 import React, { Component } from 'react';
 
+class CompanyRow extends Component {
+    render() {
+        return (
+            <tr>
+                <td>Coffee and Tea Trading Co</td>
+                <td>6/19/20</td>
+                <td>2/5</td>
+                <td><button>Edit</button></td>
+                <td><button>Archive</button></td>
+            </tr>
+        );
+    }
+}
+
 class ListCompany extends Component {
     render() {
         return (
@@ -24,6 +38,7 @@ class ListCompany extends Component {
                                 <td><button>Edit</button></td>
                                 <td><button>Archive</button></td>
                             </tr>
+                            <CompanyRow />
                         </tbody>
                     </table>
                 </div>
