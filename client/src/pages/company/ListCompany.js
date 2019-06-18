@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 
 const companies = [
-    { id: '0', cName: 'RL0', cLastDate: '06/16/2019', cLastTime: '10:00AM', priority: '4/5' },
-    { id: '1', cName: 'RL1', cLastDate: '06/17/2019', cLastTime: '10:00AM', priority: '4/5' },
+    { id: '0', cName: 'RL0', cLastDate: '06/16/2019', cLastTime: '10:00AM', priority: '3/5' },
+    { id: '1', cName: 'RL1', cLastDate: '06/17/2019', cLastTime: '10:00AM', priority: '2/5' },
     { id: '2', cName: 'RL2', cLastDate: '06/18/2019', cLastTime: '10:00AM', priority: '4/5' }
 ];
 
 class CompanyRow extends Component {
     render() {
+        const company = this.props.company;
         return (
             <tr>
-                <td>Coffee and Tea Trading Co</td>
-                <td>6/19/20</td>
-                <td>6:00 PM</td>
-                <td>2/5</td>
+                <td>{company.cName}</td>
+                <td>{company.cLastDate}</td>
+                <td>{company.cLastTime}</td>
+                <td>{company.priority}</td>
                 <td><button>Edit</button></td>
                 <td><button>Archive</button></td>
             </tr>
@@ -22,6 +23,8 @@ class CompanyRow extends Component {
 }
 class CompanyTable extends Component {
     render() {
+        const companyRows = this.props.companies
+            .map(company => <CompanyRow key={company.id} company={company} />);
         return (
             <div>
                 <table className="borded-table">
@@ -34,17 +37,7 @@ class CompanyTable extends Component {
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>RL Electronics</td>
-                            <td>06/18/2019</td>
-                            <td>10:00AM</td>
-                            <td>4/5</td>
-                            <td><button>Edit</button></td>
-                            <td><button>Archive</button></td>
-                        </tr>
-                        <CompanyRow />
-                    </tbody>
+                    <tbody>{companyRows}</tbody>
                 </table>
             </div>
         );
