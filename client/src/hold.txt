@@ -1,2 +1,33 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+oconst data = [
+            { id: 1, name: "Rl Electronics", email: "RL@123.com", priority: 4 },
+            { id: 2, name: "RL Asian", email: "RLAsan@123.com", priority: 3 },
+            { id: 3, name: "Go Go Power Ranger", email: "PowerRanger@gogo.com", priority: 1 }
+        ]
+
+                    <input
+                        id="companyRegion"
+                        type="text"
+                        onChange={this.handleChange}
+                        value={this.state.companyRegion}
+                    /><label htmlFor="companyRegion">Company Region</label>
+                    <input
+                        id="companyTimezone"
+                        type="text"
+                        onChange={this.handleChange}
+                        value={this.state.companyTimezone}
+                    /><label htmlFor="companyRegion">Company Time Zone</label>
+
+<input
+                        id="companyPocPhone"
+                        type="text"
+                        onChange={this.handleChange}
+                        value={this.state.companyPocPhone}
+                    /><label htmlFor="companyPocPhone">Company Point of Contact Phone</label>
+                    <input
+                        id="companyNotes"
+                        type="text"
+                        onChange={this.handleChange}
+                        value={this.state.companyNotes}
+                    /><label htmlFor="companyRegion">Company Notes</label>

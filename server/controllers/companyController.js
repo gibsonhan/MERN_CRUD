@@ -44,7 +44,7 @@ exports.company_update_get = (req, res) => {
             company.companyTimezone = req.body.companyTimezone;
             company.companyPoc = req.body.companyPoc;
             company.companyPocPhone = req.body.companyPocPhone;
-            company.companyNotes= req.body.companyNotes;
+            company.companyNotes = req.body.companyNotes;
 
             company.save().then(company => {
                 res.json('Company Profile Update');

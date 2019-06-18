@@ -7,7 +7,7 @@ class CompanyRow extends Component {
         return (
             <tr>
                 <td>{company.companyName}</td>
-                <td>{company.companyContact}</td>
+                <td>{company.companyPoc}</td>
                 <td>{company.companyEmail}</td>
                 <td>{company.companyRegion}</td>
                 <td><button>Edit</button></td>
@@ -28,8 +28,8 @@ class CompanyTable extends Component {
                             <th>Company Name</th>
                             <th>Contact</th>
                             <th>Email</th>
-                            <th>Priority</th>
                             <th>Region</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>{companyRows}</tbody>

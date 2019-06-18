@@ -29,7 +29,7 @@ class CreateCompany extends Component {
             companyName: this.state.companyName,
             companyEmail: this.state.companyEmail,
             companyRegion: this.state.companyRegion,
-            companyTimezone: this.state.companyTimezonea,
+            companyTimezone: this.state.companyTimezone,
             companyPoc: this.state.companyPoc,
             companyPocPhone: this.state.companyPocPhone,
             companyNote: this.state.companyNotes
@@ -93,7 +93,7 @@ class CreateCompany extends Component {
                         type="text"
                         onChange={this.handleChange}
                         value={this.state.companyNotes}
-                    /><label htmlFor="companyRegion">Company Notes</label>
+                    /><label htmlFor="companyNotes">Company Notes</label>
                     <div className="newClient-button-wrapper">
                         <button
                             type="submit"
