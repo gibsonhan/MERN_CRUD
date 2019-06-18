@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
-
-const companies = [
-    { id: '0', cName: 'RL0', cContact: 'John Doe', cEmail: 'JohnDoe@gmail.com', priority: '3/5' },
-    { id: '1', cName: 'RL0', cContact: 'John Doe', cEmail: 'JohnDoe@gmail.com', priority: '1/5' },
-    { id: '2', cName: 'RL0', cContact: 'John Doe', cEmail: 'JohnDoe@gmail.com', priority: '2/5' },
-];
+import axios from 'axios';
 
 class CompanyRow extends Component {
     render() {
         const company = this.props.company;
         return (
             <tr>
-                <td>{company.cName}</td>
-                <td>{company.cContact}</td>
-                <td>{company.cEmail}</td>
-                <td>{company.priority}</td>
+                <td>{company.companyName}</td>
+                <td>{company.companyContact}</td>
+                <td>{company.companyEmail}</td>
+                <td>{company.companyRegion}</td>
                 <td><button>Edit</button></td>
                 <td><button>Archive</button></td>
             </tr>
@@ -24,7 +19,7 @@ class CompanyRow extends Component {
 class CompanyTable extends Component {
     render() {
         const companyRows = this.props.companies
-            .map(company => <CompanyRow key={company.id} company={company} />);
+            .map(company => <CompanyRow key={company._id} company={company} />);
         return (
             <div>
                 <table className="borded-table">
@@ -34,7 +29,7 @@ class CompanyTable extends Component {
                             <th>Contact</th>
                             <th>Email</th>
                             <th>Priority</th>
-                            <th>Action</th>
+                            <th>Region</th>
                         </tr>
                     </thead>
                     <tbody>{companyRows}</tbody>
@@ -47,14 +42,27 @@ class ListCompany extends Component {
     constructor() {
         super();
         this.state = {
-            companies: companies
+            companies: []
         };
+    }
+
+    componentWillMount() {
+        this.loadData();
+    }
+
+    loadData() {
+        axios.get('http://localhost:3000/api/companies')
+            .then(response => {
+                console.log(response.data);
+                this.setState({ companies: response.data });
+            })
+            .catch(error => error);
     }
 
     render() {
         return (
             <div className="container">
-                <CompanyTable companies={companies} />
+                <CompanyTable companies={this.state.companies} />
             </div>
         );
     }
