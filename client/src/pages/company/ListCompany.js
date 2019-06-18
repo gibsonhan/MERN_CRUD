@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 
+const companies = [
+    { id: '0', cName: 'RL0', cLastDate: '06/16/2019', cLastTime: '10:00AM', priority: '4/5' },
+    { id: '1', cName: 'RL1', cLastDate: '06/17/2019', cLastTime: '10:00AM', priority: '4/5' },
+    { id: '2', cName: 'RL2', cLastDate: '06/18/2019', cLastTime: '10:00AM', priority: '4/5' }
+];
+
 class CompanyRow extends Component {
     render() {
         return (
