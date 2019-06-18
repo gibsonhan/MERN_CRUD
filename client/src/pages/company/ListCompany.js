@@ -6,6 +6,7 @@ class CompanyRow extends Component {
             <tr>
                 <td>Coffee and Tea Trading Co</td>
                 <td>6/19/20</td>
+                <td>6:00 PM</td>
                 <td>2/5</td>
                 <td><button>Edit</button></td>
                 <td><button>Archive</button></td>
@@ -21,7 +22,8 @@ class CompanyTable extends Component {
                     <thead>
                         <tr>
                             <th>Company Name</th>
-                            <th>Last Contacted</th>
+                            <th>Last Contacted Date</th>
+                            <th>Time</th>
                             <th>Priority</th>
                             <th>Action</th>
                         </tr>
@@ -29,7 +31,8 @@ class CompanyTable extends Component {
                     <tbody>
                         <tr>
                             <td>RL Electronics</td>
-                            <td>06/18/2019: 10:00AM</td>
+                            <td>06/18/2019</td>
+                            <td>10:00AM</td>
                             <td>4/5</td>
                             <td><button>Edit</button></td>
                             <td><button>Archive</button></td>
