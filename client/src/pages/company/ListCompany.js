@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 const companies = [
-    { id: '0', cName: 'RL0', cLastDate: '06/16/2019', cLastTime: '10:00AM', priority: '3/5' },
-    { id: '1', cName: 'RL1', cLastDate: '06/17/2019', cLastTime: '10:00AM', priority: '2/5' },
-    { id: '2', cName: 'RL2', cLastDate: '06/18/2019', cLastTime: '10:00AM', priority: '4/5' }
+    { id: '0', cName: 'RL0', cContact: 'John Doe', cEmail: 'JohnDoe@gmail.com', priority: '3/5' },
+    { id: '1', cName: 'RL0', cContact: 'John Doe', cEmail: 'JohnDoe@gmail.com', priority: '1/5' },
+    { id: '2', cName: 'RL0', cContact: 'John Doe', cEmail: 'JohnDoe@gmail.com', priority: '2/5' },
 ];
 
 class CompanyRow extends Component {
@@ -12,8 +12,8 @@ class CompanyRow extends Component {
         return (
             <tr>
                 <td>{company.cName}</td>
-                <td>{company.cLastDate}</td>
-                <td>{company.cLastTime}</td>
+                <td>{company.cContact}</td>
+                <td>{company.cEmail}</td>
                 <td>{company.priority}</td>
                 <td><button>Edit</button></td>
                 <td><button>Archive</button></td>
@@ -31,8 +31,8 @@ class CompanyTable extends Component {
                     <thead>
                         <tr>
                             <th>Company Name</th>
-                            <th>Last Contacted Date</th>
-                            <th>Time</th>
+                            <th>Contact</th>
+                            <th>Email</th>
                             <th>Priority</th>
                             <th>Action</th>
                         </tr>
