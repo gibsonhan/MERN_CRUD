@@ -51,10 +51,17 @@ class CompanyTable extends Component {
     }
 }
 class ListCompany extends Component {
+    constructor() {
+        super();
+        this.state = {
+            companies: companies
+        };
+    }
+
     render() {
         return (
             <div className="container">
-                <CompanyTable />
+                <CompanyTable companies={companies} />
             </div>
         );
     }
