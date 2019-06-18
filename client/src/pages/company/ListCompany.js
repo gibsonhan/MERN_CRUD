@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-
 
 class CompanyRow extends Component {
     render() {
@@ -15,45 +13,39 @@ class CompanyRow extends Component {
         );
     }
 }
-
-class ListCompany extends Component {
-    componentDidMount() {
-        axios.get('http://localhost:3000/api/companies')
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+class CompanyTable extends Component {
+    render() {
+        return (
+            <div>
+                <table className="borded-table">
+                    <thead>
+                        <tr>
+                            <th>Company Name</th>
+                            <th>Last Contacted</th>
+                            <th>Priority</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>RL Electronics</td>
+                            <td>06/18/2019: 10:00AM</td>
+                            <td>4/5</td>
+                            <td><button>Edit</button></td>
+                            <td><button>Archive</button></td>
+                        </tr>
+                        <CompanyRow />
+                    </tbody>
+                </table>
+            </div>
+        );
     }
-
+}
+class ListCompany extends Component {
     render() {
         return (
             <div className="container">
-                <div className="listNav">
-                    <p>SearchNav PlaceHolder</p>
-                </div>
-                <div className="companyList-wrapper">
-                    <table className="borded-table">
-                        <thead>
-                            <tr>
-                                <th>Company Name</th>
-                                <th>Last Contacted</th>
-                                <th>Priority</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>RL Electronics</td>
-                                <td>06/18/2019: 10:00AM</td>
-                                <td>4/5</td>
-                                <td><button>Edit</button></td>
-                                <td><button>Archive</button></td>
-                            </tr>
-                            <CompanyRow />
-                        </tbody>
-                    </table>
-                </div>
+                <CompanyTable />
             </div>
         );
     }
