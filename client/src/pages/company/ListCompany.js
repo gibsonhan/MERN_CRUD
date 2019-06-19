@@ -2,6 +2,19 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class CompanyRow extends Component {
+    constructor(props) {
+        super(props);
+        this.handleDelete = this.handleDelete.bind(this);
+    }
+
+    handleDelete() {
+        axios.get('http://localhost:3000/api/companies/delete/' + this.props.company._id)
+            .then(res => {
+                console.log('Delete Successful');
+            })
+            .catch(err => console.log(err));
+    }
+
     render() {
         const company = this.props.company;
         return (
@@ -11,11 +24,12 @@ class CompanyRow extends Component {
                 <td>{company.companyEmail}</td>
                 <td>{company.companyRegion}</td>
                 <td><button>Edit</button></td>
-                <td><button>Archive</button></td>
+                <td><button onClick={this.handleDelete}>Delete</button></td>
             </tr>
         );
     }
 }
+
 class CompanyTable extends Component {
     render() {
         const companyRows = this.props.companies
