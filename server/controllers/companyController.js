@@ -2,9 +2,9 @@ const Company = require('../models/Company');
 
 //Handle Delivering  all avaliable company Profile
 exports.company_index = (req, res) => {
-    Company.find(( err, company)=> {
+    Company.find((err, company) => {
         if (err) {
-            console.log(err);
+            console.log('sudden error', err);
         }
         else {
             res.json(company);
@@ -13,10 +13,10 @@ exports.company_index = (req, res) => {
 }
 
 exports.company_id_get = (req, res) => {
-    let id = req.params.id;
-    Company.findById(id, (err, company)=> {
+    let id = req.params.id
+    Company.findById(id, (err, company) => {
         res.json(company)
-    });
+    })
 }
 
 //Handle Company create on Post
@@ -25,38 +25,18 @@ exports.company_create_post = (req, res) => {
     console.log(company);
     company.save()
         .then(company => {
-            res.status(201).json('New company added successfully');
+            res.status(201).json('New company added successfully', company);
         })
         .catch(err=> {
-            res.status(400).send("unable to save to database");
+            res.status(400).send("Unable to save to database", err);
         });
 };
 
-exports.company_update_get = (req, res) => {
-    Company.findById(req.params.id, (err, company) => {
-        if(!company) {
-            res.status(404).send("data is not found");
-        }
-        else {
-            company.companyName = req.body.companyName;
-            company.companyEmail = req.body.companyEmail;
-            company.companyRegion = req.body.companyRegion;
-            company.companyTimezone = req.body.companyTimezone;
-            company.companyPoc = req.body.companyPoc;
-            company.companyPocPhone = req.body.companyPocPhone;
-            company.companyNotes = req.body.companyNotes;
-
-            company.save().then(company => {
-                res.json('Company Profile Update');
-            })
-            .catch(err=> {
-                res.status(400).send("Failed to Update Company Profile");
-            })
-        }
-    })
+exports.company_update_put = (req, res) => {
+  Company.findByIdAndUpdate({_id: req.params.id})
 }
 
-exports.company_delete_post = (req, res) => {
+exports.company_delete_get = (req, res) => {
     Company.findByIdAndRemove({_id: req.params.id})
         .then(company => { 
             if(!company){
@@ -65,7 +45,8 @@ exports.company_delete_post = (req, res) => {
             else {
                 res.status(200).json(company);
             }
-        }).catch(err => {
+        })
+        .catch(err => {
             res.status(400).send("Failed to Delete Company Profile", err);
         })
 }
