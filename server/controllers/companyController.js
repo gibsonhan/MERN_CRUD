@@ -34,6 +34,23 @@ exports.company_create_post = (req, res) => {
 
 exports.company_update_put = (req, res) => {
   Company.findByIdAndUpdate({_id: req.params.id})
+    .then(company => {
+        if(!company) {
+            res.status(404).send('Cannot findID')
+        }
+        else {
+           company.companyName = req.body.companyName;
+           company.companyEmail = req.body.companyEmail;
+           company.companyRegion = req.body.companyRegion;
+
+           company.save().then(company => {
+               res.json('Update Completed', company);
+           })
+           .catch(err => {
+               res.status(400).send("unable to update the database");
+           });
+        }
+    });
 }
 
 exports.company_delete_get = (req, res) => {
