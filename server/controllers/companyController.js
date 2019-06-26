@@ -25,7 +25,7 @@ exports.company_create_post = (req, res) => {
     console.log(company);
     company.save()
         .then(company => {
-            res.status(201).json('New company added successfully', company);
+            res.status(200).json('New company added successfully', company);
         })
         .catch(err=> {
             res.status(400).send("Unable to save to database", err);

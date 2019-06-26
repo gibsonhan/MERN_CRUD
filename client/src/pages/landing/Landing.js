@@ -16,10 +16,13 @@ class Landing extends Component {
                                 Generic CRM website
                             </p>
                             <br />
-                            <div className="col s6">
+                            <div className="col s4">
                                 <Link to="/login"> Login </Link>
                             </div>
-                            <div className="col s6">
+                            <div className = "col s4">
+                                <Link to="/companies"> Companies </Link>
+                            </div>
+                            <div className="col s4">
                                 <Link to="/register"> Register </Link>
                             </div>
                         </div>
