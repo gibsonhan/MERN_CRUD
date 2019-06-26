@@ -26,6 +26,7 @@ class CompanyRow extends Component {
                 <td>{company.companyRegion}</td>
                 <td><Link to={"/company/" + company._id}>Edit</Link></td>
                 <td><button onClick={this.handleDelete}>Delete</button></td>
+                <td><button onClick={this.props.childDeleteId}>DeleteId</button></td>
             </tr>
         );
     }

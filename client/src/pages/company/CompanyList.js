@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import CompanyTable from './CompanyTable';
 
-class ListCompany extends Component {
+class CompanyList extends Component {
     constructor() {
         super();
         this.state = {
@@ -25,18 +25,27 @@ class ListCompany extends Component {
             .catch(error => error);
     }
 
+    handleDeleteParent(id) {
+        axios.get('http://localhost:3000/api/companies/delete/' + id)
+            .then(res => {
+                console.log('Delete Successful');
+                this.loadData();
+            })
+            .catch(err => console.log(err));
+    }
+
     render() {
         return (
             <div className="container">
-                <CompanyTable companies={this.state.companies} />
+                <CompanyTable companies={this.state.companies} _handleDelete={this.handleDeleteParent.bind(this)} />
             </div>
         );
     }
 }
 
-ListCompany.propTypes = {
+CompanyList.propTypes = {
     companies: PropTypes.array
 };
 
-export default ListCompany;
+export default CompanyList;
 

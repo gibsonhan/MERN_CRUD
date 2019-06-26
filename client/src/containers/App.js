@@ -13,9 +13,9 @@ import Register from '../components/auth/Register';
 import Footer from '../components/footer/Footer';
 
 //import Company Component
-import CreateCompany from "../pages/company/CreateCompany";
-import ListCompany from "../pages/company/ListCompany";
-import EditCompany from "../pages/company/EditCompany";
+import CompanyCreate from "../pages/company/CompanyCreate";
+import CompanyList from "../pages/company/CompanyList";
+import CompanyEdit from "../pages/company/CompanyEdit";
 import Test from "../components/test/Test";
 
 class App extends Component {
@@ -28,9 +28,9 @@ class App extends Component {
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/dashboard" component={Dashboard} />
-                    <Route exaxt path="/createCompany" component={CreateCompany} />
-                    <Route exact path="/companies" component={ListCompany} />
-                    <Route path="/company/:id" component={EditCompany} />
+                    <Route exaxt path="/newcompany" component={CompanyCreate} />
+                    <Route exact path="/companies" component={CompanyList} />
+                    <Route path="/company/:id" component={CompanyEdit} />
                     <Route path= "/test" component={Test} />
                     <Footer />
                 </div>

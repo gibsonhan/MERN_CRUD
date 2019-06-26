@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 
 
-class CreateCompany extends Component {
+class CompanyCreate extends Component {
     constructor() {
         super();
         this.state = {
@@ -108,4 +108,4 @@ class CreateCompany extends Component {
     }
 }
 
-export default CreateCompany;
+export default CompanyCreate;

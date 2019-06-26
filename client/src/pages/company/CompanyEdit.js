@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import axios from 'axios';
 
-class EditCompany extends Component {
+class CompanyEdit extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -123,5 +123,5 @@ class EditCompany extends Component {
     }
 }
 
-export default EditCompany;
+export default CompanyEdit;
 

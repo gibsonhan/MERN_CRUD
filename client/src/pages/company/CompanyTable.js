@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import CompanyRow from './CompyRow';
+import CompanyRow from './CompanyRow';
 
 class CompanyTable extends Component {
     render() {
@@ -21,7 +21,7 @@ class CompanyTable extends Component {
                     </thead>
                     <tbody>{companyRows}</tbody>
                 </table>
-                <Link to ="/createCompany">Create Company</Link>
+                <Link to ="newcompany">Create Company</Link>
             </div>
         );
     }
