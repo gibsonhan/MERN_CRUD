@@ -6,7 +6,7 @@ import CompanyRow from './CompanyRow';
 
 const CompanyTable = (props) => {
     const companyRows = props.companies.map(company =>
-        <CompanyRow key={company._id} company={company} />);
+        <CompanyRow key={company._id} company={company} deleteRow={props.deleteRow}/>);
     return (
         <div>
             <table className="borded-table">
@@ -21,7 +21,7 @@ const CompanyTable = (props) => {
                 </thead>
                 <tbody>{companyRows}</tbody>
             </table>
-            <Link to ="newcompany">Create Company</Link>
+            <Link to ="new-company">Create Company</Link>
         </div>
     );
 };
