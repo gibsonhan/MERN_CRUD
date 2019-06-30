@@ -5,14 +5,15 @@ import axios from 'axios';
 import CompanyTable from './CompanyTable';
 
 class CompanyList extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            companies: []
+            companies: [],
         };
+        this.deleteParentMethod = this.deleteParentMethod.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.loadData();
     }
 
@@ -25,19 +26,19 @@ class CompanyList extends Component {
             .catch(error => error);
     }
 
-    handleDeleteParent(id) {
+    deleteParentMethod(id) {
         axios.get('http://localhost:3000/api/companies/delete/' + id)
             .then(res => {
                 console.log('Delete Successful');
-                this.loadData();
             })
             .catch(err => console.log(err));
+        this.loadData();
     }
 
     render() {
         return (
             <div className="container">
-                <CompanyTable companies={this.state.companies} _handleDelete={this.handleDeleteParent.bind(this)} />
+                <CompanyTable companies={this.state.companies} deleteRow={this.deleteParentMethod} />
             </div>
         );
     }

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
+
 import axios from 'axios';
 
 
@@ -98,9 +100,7 @@ class CompanyCreate extends Component {
                         <button
                             type="submit"
                         >Submit</button>
-                        <button
-                            type="reset"
-                        >Reset</button>
+                        <Link to ="/companies">Cancel</Link>
                     </div>
                 </form>
             </div>
