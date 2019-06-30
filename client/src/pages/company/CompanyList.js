@@ -8,7 +8,7 @@ class CompanyList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            companies: [],
+            companies: []
         };
         this.deleteParentMethod = this.deleteParentMethod.bind(this);
     }

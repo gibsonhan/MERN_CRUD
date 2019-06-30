@@ -27,7 +27,8 @@ const CompanyTable = (props) => {
 };
 
 CompanyTable.propTypes = {
-    companies: PropTypes.propTypes
+    companies: PropTypes.object,
+    deleteRow: PropTypes.func
 };
 
 export default CompanyTable;

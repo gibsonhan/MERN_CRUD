@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
 const CompanyRow = (props) => {
     let onclickDelete = () => {
@@ -17,6 +18,13 @@ const CompanyRow = (props) => {
             <td><button onClick={onclickDelete}>Delete</button></td>
         </tr>
     );
+};
+
+CompanyRow.propTypes = {
+    deleteRow: PropTypes.func,
+    company: PropTypes.shape({
+        _id: PropTypes.string.isRequired
+    })
 };
 
 export default CompanyRow;

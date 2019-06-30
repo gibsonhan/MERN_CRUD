@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
 import axios from 'axios';
 
@@ -57,8 +58,6 @@ class CompanyEdit extends Component {
 
         axios.put('http://localhost:3000/api/companies/update/' + this.props.match.params.id, companyObj)
             .then(res => console.log("company updated with axios.put", res.data));
-
-        this.props.history.push('/companies');
     }
 
     render() {
@@ -122,6 +121,14 @@ class CompanyEdit extends Component {
         );
     }
 }
+
+CompanyEdit.propTypes = {
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            id: PropTypes.string.isRequired
+        })
+    })
+};
 
 export default CompanyEdit;
 
