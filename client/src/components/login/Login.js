@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import Auth from "../../modules/Auth";
 
 class Login extends Component {
     constructor() {
         super();
         this.state = {
-            email: "",
-            password: "",
+            email: '',
+            password: '',
             errors: {}
         };
         this.handleChange = this.handleChange.bind(this);
@@ -19,13 +21,29 @@ class Login extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        console.log('Login Attempt');
+        console.log('Email', this.state.email);
+        console.log('password', this.state.password);
+        const loginObj = {
+            email: this.state.email,
+            password: this.state.password
+        };
+        axios.post('http://localhost:3000/api/user/login', loginObj)
+            .then(res => {
+                //this.setState({ token: res.data.token });
+                console.log(res.data);
+                console.log(res.data.token);
+                Auth.authenticateUser(res.data.token);
+                this.props.history.replace('/test');
+            })
+            .catch(err => console.log(err.response.data));
     }
 
     render() {
         const { errors } = this.state;
 
         return (
-            <div className="container">
+            <div style={{ marginTop: "5%" }} className="container">
                 <div className="col s12">
                     <h5>
                         <b> Login </b> below
