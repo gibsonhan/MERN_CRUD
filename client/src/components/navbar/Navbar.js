@@ -6,7 +6,7 @@ function authTokenTrue() {
     return (
         <div>
             <div className="col s1">
-                <Link to="/test">Profile</Link>
+                <Link to="/user">Profile</Link>
             </div>
             <div className="col s1">
                 <Link to="/" onClick={Auth.deauthenticateUser}>Logout</Link>

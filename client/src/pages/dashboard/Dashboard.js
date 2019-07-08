@@ -2,7 +2,7 @@ import React, { Component } from "react";
 //import { BrowserRoute as Router, Route } from "react-router-dom";
 import "./Dashboard.scss";
 
-import Test from "../../components/test/Test";
+import User from "../../components/user/User";
 
 class Dashboard extends Component {
     render() {
@@ -18,7 +18,7 @@ class Dashboard extends Component {
                     <div className="dashboard-main col s10">
                         <div className="container">
                             <p>Place Holder</p>
-                            <Test />
+                            <User />
                         </div>
                     </div>
                 </div>

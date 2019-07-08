@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import axios from 'axios';
 import setAuthtoken from '../../modules/setAuthtoken';
 import Auth from '../../modules/Auth';
-import "./test.scss";
+import "./User.scss";
 
-class Test extends Component {
+class User extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,7 +16,7 @@ class Test extends Component {
 
     componentWillMount() {
         console.log(Auth.getToken());
-        axios.get('http://localhost:3000/api/user/secret', setAuthtoken(Auth.getToken()))
+        axios.get('http://localhost:3000/api/user/auth/secret', setAuthtoken(Auth.getToken()))
             .then(res => {
                 console.log(res.data);
                 this.setState({ message: res.data });
@@ -34,4 +34,4 @@ class Test extends Component {
     }
 }
 
-export default Test;
+export default User;

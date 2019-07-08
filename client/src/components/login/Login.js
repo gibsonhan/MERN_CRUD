@@ -34,7 +34,7 @@ class Login extends Component {
                 console.log(res.data);
                 console.log(res.data.token);
                 Auth.authenticateUser(res.data.token);
-                this.props.history.replace('/test');
+                this.props.history.replace('/user');
             })
             .catch(err => console.log(err.response.data));
     }

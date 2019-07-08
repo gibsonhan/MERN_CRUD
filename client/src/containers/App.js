@@ -17,7 +17,7 @@ import Footer from '../components/footer/Footer';
 import CompanyCreate from "../pages/company/CompanyCreate";
 import CompanyList from "../pages/company/CompanyList";
 import CompanyEdit from "../pages/company/CompanyEdit";
-import Test from "../components/test/Test";
+import User from "../components/user/User";
 
 class App extends Component {
     render() {
@@ -32,7 +32,7 @@ class App extends Component {
                     <Route exaxt path="/new-company" component={CompanyCreate} />
                     <Route exact path="/companies" component={CompanyList} />
                     <Route path="/company/:id" component={CompanyEdit} />
-                    <Route path= "/test" component={Test} />
+                    <Route path= "/user" component={User} />
                     <Footer />
                 </div>
             </Router>
