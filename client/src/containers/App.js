@@ -14,9 +14,9 @@ import Register from '../components/register/Register';
 import Footer from '../components/footer/Footer';
 
 //import Company Component
-import CompanyCreate from "../pages/company/CompanyCreate";
-import CompanyList from "../pages/company/CompanyList";
-import CompanyEdit from "../pages/company/CompanyEdit";
+import CompanyCreate from "../components/company/CompanyCreate";
+import CompanyList from "../components/company/CompanyList";
+import CompanyEdit from "../components/company/CompanyEdit";
 import User from "../components/user/User";
 
 class App extends Component {
