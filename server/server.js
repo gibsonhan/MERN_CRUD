@@ -39,17 +39,6 @@ app.use(passport.initialize());
 //Passport config
 require('./config/passport.js')(passport)
 
-//Load passport strategies
-//const localSignUpStrategy = require('./utils/passport/local-signup');
-//const localLoginStrategy = require('./utils/passport/local-login');
-
-//passport.use('local-signup', localSignUpStrategy);
-//passport.use('local-login', localLoginStrategy);
-
-//Pass the authentication checker middleware
-//const authCheck = require('./utils/middleware/auth-check');
-//app.use('/api/authCheck', authCheck);
-
 //Routes
 const companyRoutes = require('./routes/api/companies');
 const userRoutes = require('./routes/api/user');

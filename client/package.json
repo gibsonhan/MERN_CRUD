@@ -4,6 +4,7 @@
   "main": "server/server.js",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^4.2.0",
     "axios": "^0.19.0",
     "babel-core": "^6.26.3",
     "bootstrap": "^4.3.1",
