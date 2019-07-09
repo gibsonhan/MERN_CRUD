@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import "./App.scss";
 
 //import { Provider } from "react-redux";
@@ -7,16 +8,16 @@ import "./App.scss";
 
 import Dashboard from "../pages/dashboard/Dashboard";
 import Landing from "../pages/landing/Landing";
-import Login from '../components/auth/Login';
+import Login from '../components/login/Login';
 import Navbar from "../components/navbar/Navbar";
-import Register from '../components/auth/Register';
+import Register from '../components/register/Register';
 import Footer from '../components/footer/Footer';
 
 //import Company Component
-import CompanyCreate from "../pages/company/CompanyCreate";
-import CompanyList from "../pages/company/CompanyList";
-import CompanyEdit from "../pages/company/CompanyEdit";
-import Test from "../components/test/Test";
+import CompanyCreate from "../components/company/CompanyCreate";
+import CompanyList from "../components/company/CompanyList";
+import CompanyEdit from "../components/company/CompanyEdit";
+import User from "../components/user/User";
 
 class App extends Component {
     render() {
@@ -31,7 +32,7 @@ class App extends Component {
                     <Route exaxt path="/new-company" component={CompanyCreate} />
                     <Route exact path="/companies" component={CompanyList} />
                     <Route path="/company/:id" component={CompanyEdit} />
-                    <Route path= "/test" component={Test} />
+                    <Route path= "/user" component={User} />
                     <Footer />
                 </div>
             </Router>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 class Register extends Component {
     constructor() {
@@ -7,34 +8,56 @@ class Register extends Component {
         this.state = {
             name: '',
             email: '',
+            isLoading: true,
             password: '',
             password2: '',
+            token: '',
             errors: {}
         };
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSignUpSubmit = this.handleSignUpSubmit.bind(this);
     }
 
     handleChange(e) {
         this.setState({ [e.target.id]: e.target.value });
     }
 
-    handleSubmit(e) {
+    handleSignUpSubmit(e) {
         event.preventDefault();
+        const userObject = {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password,
+            password2: this.state.password2
+        };
+
+        this.setState({
+            name: '',
+            email: '',
+            password: '',
+            password2: ''
+        });
+
+        axios.post('http://localhost:3000/api/user/register', userObject)
+            .then(res => console.log('Sign Up Successful', res))
+            .catch(err => {
+                this.setState({ errors: err.response.data });
+                console.log(this.state.errors);
+            });
     }
 
     render() {
         const { errors } = this.state;
 
         return (
-            <div className="container">
+            <div style={{ marginTop: "7%" }}className="container">
                 <div className="col 12">
                     <h6>
                         <b>Register</b> below
                         <p> Already have account? <Link to="/Login"> Login Here </Link></p>
                     </h6>
                     <div className= "column">
-                        <form noValidate onSubmit={this.handleSubmit}>
+                        <form noValidate onSubmit={this.handleSignUpSubmit}>
                             <div className="input-field col s12">
                                 <input
                                     id="name"

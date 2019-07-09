@@ -7,22 +7,24 @@ const cors = require('cors')
 const passport = require('passport');
 
 const app = express();
-const users = require('./routes/api/users');
-const companyRoute = require('./routes/api/companies');
 
-app.use(express.static("static"));
-//Bodyparser middleware
+//Tell app to look for static files in these directories
+app.use(express.static('static'));
+//app.use(express.static('.client/dist'));
 
+//[] take notes on what cors is
 app.use(cors());
+
+//Bodyparser middleware, tells app to parse HTTP body message
+app.use(bodyParser.json());
 app.use(
         bodyParser.urlencoded({
         extended: false
     })
 );
-app.use(bodyParser.json());
 
 // DB configuration
-const db = require("./config.scripts/mongoKey").mongoURI;
+const db = require("./config/mongoKey").mongoURI;
 
 // Connect to MonngoDB
 mongoose.connect(
@@ -31,18 +33,34 @@ mongoose.connect(
     .then((db) => console.log('MongoDB succesfully connected'))
     .catch(err => console.log(err));
 
-//Passport middleware
+//Passport middleware, pass the passport middleware
 app.use(passport.initialize());
 
 //Passport config
-require('./config.scripts/passport.js')(passport);
+require('./config/passport.js')(passport)
+
+//Load passport strategies
+//const localSignUpStrategy = require('./utils/passport/local-signup');
+//const localLoginStrategy = require('./utils/passport/local-login');
+
+//passport.use('local-signup', localSignUpStrategy);
+//passport.use('local-login', localLoginStrategy);
+
+//Pass the authentication checker middleware
+//const authCheck = require('./utils/middleware/auth-check');
+//app.use('/api/authCheck', authCheck);
 
 //Routes
-app.use('/api/users', users);
-app.use('/api/companies', companyRoute);
+const companyRoutes = require('./routes/api/companies');
+const userRoutes = require('./routes/api/user');
+//const authRoutes = require('./routes/auth/auth');
+
+app.use('/api/companies', companyRoutes);
+app.use('/api/user', userRoutes);
+//app.use('/api/auth', authRoutes);
 
 //Redirect any server request back to index.html: To deal with CRS
-app.get('/', function(req, res, next){
+app.get('/*', function(req, res, next){
     res.sendFile(path.join(__dirname, '../client', 'index.html'));
 })
 
