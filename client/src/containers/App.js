@@ -7,7 +7,7 @@ import "./App.scss";
 //import store from "../redux/store";
 
 import Dashboard from "../pages/dashboard/Dashboard";
-import Landing from "../pages/landing/Landing";
+//import Landing from "../pages/landing/Landing";
 import Login from '../components/login/Login';
 import Navbar from "../components/navbar/Navbar";
 import Register from '../components/register/Register';
@@ -19,13 +19,15 @@ import CompanyList from "../components/company/CompanyList";
 import CompanyEdit from "../components/company/CompanyEdit";
 import User from "../components/user/User";
 
+import Inventory from '../components/inventory/Inventory';
+
 class App extends Component {
     render() {
         return (
             <Router>
                 <div className="App">
                     <Navbar />
-                    <Route exact path="/" component={Landing} />
+                    <Route exact path="/" component={Inventory} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/dashboard" component={Dashboard} />
