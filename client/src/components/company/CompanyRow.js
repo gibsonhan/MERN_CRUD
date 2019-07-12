@@ -14,7 +14,7 @@ const CompanyRow = (props) => {
             <td>{company.companyPoc}</td>
             <td>{company.companyEmail}</td>
             <td>{company.companyRegion}</td>
-            <td><Link to={"/company/" + company._id}>Edit</Link></td>
+            <td><Link to={"/companies/" + company._id}>Edit</Link></td>
             <td><button onClick={onclickDelete}>Delete</button></td>
         </tr>
     );

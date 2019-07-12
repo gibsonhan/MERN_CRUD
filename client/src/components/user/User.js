@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import setAuthtoken from '../../modules/setAuthtoken';
 import Auth from '../../modules/Auth';
@@ -29,6 +30,7 @@ class User extends Component {
             <div className="testWrapper" style={{ paddingTop: "10%" }}>
                 <h3>Place Holder Test</h3>
                 <p>Your token, {this.state.message}</p>
+                <Link to = "/dashboard"> Dashboard </Link>
             </div>
         );
     }
